@@ -1,0 +1,80 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cat {
+  id: Int!
+  name: String!
+  owner: Owner!
+  ownerId: Int!
+  type: String
+}
+
+input CreateCatInput {
+  name: String!
+  ownerId: Int!
+  type: String
+}
+
+input CreateOwnerInput {
+  name: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+input LoginUserInput {
+  password: String!
+  username: String!
+}
+
+type Mutation {
+  createCat(createCatInput: CreateCatInput!): Cat!
+  createOwner(createOwnerInput: CreateOwnerInput!): Owner!
+  login(loginUserInput: LoginUserInput!): LoginResponse!
+  register(loginUserInput: LoginUserInput!): User!
+  removeCat(id: Int!): Cat!
+  removeOwner(id: Int!): Owner!
+  updateCat(updateCatInput: UpdateCatInput!): Cat!
+  updateOwner(updateOwnerInput: UpdateOwnerInput!): Owner!
+}
+
+type Owner {
+  cats: [Cat!]
+  id: Int!
+  name: String!
+}
+
+type Pet {
+  id: Int!
+  name: String!
+  type: String
+}
+
+type Query {
+  cat(id: Int!): Cat!
+  cats: [Cat!]!
+  owner(id: Int!): Owner!
+  owners: [Owner!]!
+  user(username: String!): User!
+  users: [User!]!
+}
+
+input UpdateCatInput {
+  id: Int!
+  name: String
+  ownerId: Int
+  type: String
+}
+
+input UpdateOwnerInput {
+  id: Int!
+  name: String
+}
+
+type User {
+  id: Int!
+  username: String!
+}
